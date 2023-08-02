@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{314462BB-689B-4288-A317-06B4DE7272F3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nocutAR</RootNamespace>
+    <AssemblyName>nocutAR</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.50927.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PdfToImage, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PdfToImage.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Net.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\accountinfo.aspx" />
+    <Content Include="Account\campainhist.aspx" />
+    <Content Include="Account\CampainList.aspx" />
+    <Content Include="Account\setCampainDescription.aspx" />
+    <Content Include="Account\setBoardStatus.aspx" />
+    <Content Include="Account\detailContent.aspx" />
+    <Content Include="Account\CopyCampain.aspx" />
+    <Content Include="Account\get3DTemplateInfo.aspx" />
+    <Content Include="Account\getContentData.aspx" />
+    <Content Include="Account\getFileSize.aspx" />
+    <Content Include="Account\getUseProduct.aspx" />
+    <Content Include="Account\getXML.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Logout.aspx" />
+    <Content Include="Account\Notice.aspx" />
+    <Content Include="Account\PostUpload.aspx" />
+    <Content Include="Account\setMarkerData.aspx" />
+    <Content Include="Account\setMarkerUpdateData.aspx" />
+    <Content Include="Account\setXML.aspx" />
+    <Content Include="Account\UserPage.Master" />
+    <Content Include="Account\VUpload.aspx" />
+    <Content Include="getCheckDup.aspx" />
+    <Content Include="getNewInfo.aspx" />
+    <Content Include="img\icon_carender.png" />
+    <Content Include="img\icon_condition_green.png" />
+    <Content Include="img\icon_condition_red.png" />
+    <Content Include="img\icon_condition_yellow.png" />
+    <Content Include="img\left_admin.png" />
+    <Content Include="img\left_bt_confirm.png" />
+    <Content Include="img\left_bt_confirm_r.png" />
+    <Content Include="img\mainlist_numleft.png" />
+    <Content Include="img\mainlist_numright.png" />
+    <Content Include="img\popup_close.png" />
+    <Content Include="img\popup_close_r.png" />
+    <Content Include="img\top_bt_home.png" />
+    <Content Include="img\top_bt_home_r.png" />
+    <Content Include="img\top_bt_logout.png" />
+    <Content Include="img\top_bt_logout_r.png" />
+    <Content Include="img\top_bt_pw.png" />
+    <Content Include="img\top_bt_pw_r.png" />
+    <Content Include="img\top_logo.png" />
+    <Content Include="Manager\NoticeMng.aspx" />
+    <Content Include="Manager\default.aspx" />
+    <Content Include="Manager\DetailProduct.aspx" />
+    <Content Include="Manager\getUsedStatus.aspx" />
+    <Content Include="Manager\login.aspx" />
+    <Content Include="Manager\LogMng.aspx" />
+    <Content Include="Manager\Logout.aspx" />
+    <Content Include="Manager\MemberMng.aspx" />
+    <Content Include="Manager\ProductMng.aspx" />
+    <Content Include="Manager\RegUser.aspx" />
+    <Content Include="Manager\RemoveUser.aspx" />
+    <Content Include="Manager\trafficdetail.aspx" />
+    <Content Include="Manager\UsedStatusWindow.aspx" />
+    <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\edit_obj.js" />
+    <Content Include="Scripts\init_obj.js" />
+    <Content Include="Scripts\detailcontents_opt.js" />
+    <Content Include="Scripts\filebrowse.js" />
+    <Content Include="Scripts\highcharts\highcharts.js" />
+    <Content Include="Scripts\highcharts\modules\broken-axis.js" />
+    <Content Include="Scripts\highcharts\modules\broken-axis.src.js" />
+    <Content Include="Scripts\highcharts\modules\canvas-tools.js" />
+    <Content Include="Scripts\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\highcharts\modules\data.js" />
+    <Content Include="Scripts\highcharts\modules\data.src.js" />
+    <Content Include="Scripts\highcharts\modules\drilldown.js" />
+    <Content Include="Scripts\highcharts\modules\drilldown.src.js" />
+    <Content Include="Scripts\highcharts\modules\exporting.js" />
+    <Content Include="Scripts\highcharts\modules\exporting.src.js" />
+    <Content Include="Scripts\highcharts\modules\funnel.js" />
+    <Content Include="Scripts\highcharts\modules\funnel.src.js" />
+    <Content Include="Scripts\highcharts\modules\heatmap.js" />
+    <Content Include="Scripts\highcharts\modules\heatmap.src.js" />
+    <Content Include="Scripts\highcharts\modules\no-data-to-display.js" />
+    <Content Include="Scripts\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\highcharts\modules\solid-gauge.js" />
+    <Content Include="Scripts\highcharts\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\highcharts\modules\treemap.js" />
+    <Content Include="Scripts\highcharts\modules\treemap.src.js" />
+    <Content Include="Scripts\jquery-1.11.2.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2\external\jquery\jquery.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.11.2\index.html" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.structure.css" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.theme.css" />
+    <Content Include="Scripts\jquery-ui-1.11.2\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\kakao.min.js" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\popup.js" />
+    <Content Include="Scripts\save_obj.js" />
+    <Content Include="Scripts\toolbar.js" />
+    <Content Include="Styles\Account.css" />
+    <Content Include="Styles\jquery-ui.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\accountinfo.aspx.cs">
+      <DependentUpon>accountinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\accountinfo.aspx.designer.cs">
+      <DependentUpon>accountinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\campainhist.aspx.cs">
+      <DependentUpon>campainhist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\campainhist.aspx.designer.cs">
+      <DependentUpon>campainhist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CampainList.aspx.cs">
+      <DependentUpon>CampainList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\CampainList.aspx.designer.cs">
+      <DependentUpon>CampainList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\setCampainDescription.aspx.cs">
+      <DependentUpon>setCampainDescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\setCampainDescription.aspx.designer.cs">
+      <DependentUpon>setCampainDescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\setBoardStatus.aspx.cs">
+      <DependentUpon>setBoardStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\setBoardStatus.aspx.designer.cs">
+      <DependentUpon>setBoardStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\detailContent.aspx.cs">
+      <DependentUpon>detailContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\detailContent.aspx.designer.cs">
+      <DependentUpon>detailContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CopyCampain.aspx.cs">
+      <DependentUpon>CopyCampain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\CopyCampain.aspx.designer.cs">
+      <DependentUpon>CopyCampain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\get3DTemplateInfo.aspx.cs">
+      <DependentUpon>get3DTemplateInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\get3DTemplateInfo.aspx.designer.cs">
+      <DependentUpon>get3DTemplateInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\getContentData.aspx.cs">
+      <DependentUpon>getContentData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\getContentData.aspx.designer.cs">
+      <DependentUpon>getContentData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\getFileSize.aspx.cs">
+      <DependentUpon>getFileSize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\getFileSize.aspx.designer.cs">
+      <DependentUpon>getFileSize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\getUseProduct.aspx.cs">
+      <DependentUpon>getUseProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\getUseProduct.aspx.designer.cs">
+      <DependentUpon>getUseProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\getXML.aspx.cs">
+      <DependentUpon>getXML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\getXML.aspx.designer.cs">
+      <DependentUpon>getXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\MemberShip.master.cs">
+      <DependentUpon>MemberShip.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\MemberShip.master.designer.cs">
+      <DependentUpon>MemberShip.master</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\PostUpload.aspx.cs">
+      <DependentUpon>PostUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\PostUpload.aspx.designer.cs">
+      <DependentUpon>PostUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\setMarkerData.aspx.cs">
+      <DependentUpon>setMarkerData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\setMarkerData.aspx.designer.cs">
+      <DependentUpon>setMarkerData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\setMarkerUpdateData.aspx.cs">
+      <DependentUpon>setMarkerUpdateData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\setMarkerUpdateData.aspx.designer.cs">
+      <DependentUpon>setMarkerUpdateData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\setXML.aspx.cs">
+      <DependentUpon>setXML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\setXML.aspx.designer.cs">
+      <DependentUpon>setXML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserPage2.Master.cs">
+      <DependentUpon>UserPage2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\UserPage2.Master.designer.cs">
+      <DependentUpon>UserPage2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserPage.Master.cs">
+      <DependentUpon>UserPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\UserPage.Master.designer.cs">
+      <DependentUpon>UserPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Account\VUpload.aspx.cs">
+      <DependentUpon>VUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\VUpload.aspx.designer.cs">
+      <DependentUpon>VUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Err.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Err.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Msg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Msg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\RegEx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegEx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Str.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Str.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AjaxPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\AuthUser.cs" />
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DBManager.cs" />
+    <Compile Include="Common\Defines.cs" />
+    <Compile Include="Common\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getCheckDup.aspx.cs">
+      <DependentUpon>getCheckDup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getCheckDup.aspx.designer.cs">
+      <DependentUpon>getCheckDup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getNewInfo.aspx.cs">
+      <DependentUpon>getNewInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getNewInfo.aspx.designer.cs">
+      <DependentUpon>getNewInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Account.master.cs">
+      <DependentUpon>Account.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Account.master.designer.cs">
+      <DependentUpon>Account.master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\NoticeMng.aspx.cs">
+      <DependentUpon>NoticeMng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\NoticeMng.aspx.designer.cs">
+      <DependentUpon>NoticeMng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\DetailProduct.aspx.cs">
+      <DependentUpon>DetailProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\DetailProduct.aspx.designer.cs">
+      <DependentUpon>DetailProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\getUsedStatus.aspx.cs">
+      <DependentUpon>getUsedStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\getUsedStatus.aspx.designer.cs">
+      <DependentUpon>getUsedStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\LogMng.aspx.cs">
+      <DependentUpon>LogMng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\LogMng.aspx.designer.cs">
+      <DependentUpon>LogMng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager.Master.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager.Master.designer.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\MemberMng.aspx.cs">
+      <DependentUpon>MemberMng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\MemberMng.aspx.designer.cs">
+      <DependentUpon>MemberMng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ProductMng.aspx.cs">
+      <DependentUpon>ProductMng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\ProductMng.aspx.designer.cs">
+      <DependentUpon>ProductMng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\RegUser.aspx.cs">
+      <DependentUpon>RegUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\RegUser.aspx.designer.cs">
+      <DependentUpon>RegUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\RemoveUser.aspx.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\RemoveUser.aspx.designer.cs">
+      <DependentUpon>RemoveUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\trafficdetail.aspx.cs">
+      <DependentUpon>trafficdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\trafficdetail.aspx.designer.cs">
+      <DependentUpon>trafficdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\UsedStatusWindow.aspx.cs">
+      <DependentUpon>UsedStatusWindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\UsedStatusWindow.aspx.designer.cs">
+      <DependentUpon>UsedStatusWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="markers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{8B687615-F210-4F45-A09D-61AEFB89F9BA}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\RegEx.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>RegEx.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Err.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Err.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Msg.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Msg.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Str.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Str.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\UserPage2.Master" />
+    <Content Include="Manager\Manager.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manager\Account.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\MemberShip.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>46000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

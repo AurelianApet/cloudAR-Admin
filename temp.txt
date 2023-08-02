@@ -1,0 +1,96 @@
+<form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    My ASP.NET Application
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+<asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
+        <LayoutTemplate>
+            <span class="failureNotification">
+                <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+            </span>
+            <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="LoginUserValidationGroup"/>
+            <div class="accountInfo">
+                <fieldset class="login">
+                    <legend>Account Information</legend>
+                    <p>
+                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Username:</asp:Label>
+                        <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                             CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
+                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                    </p>
+                    <p>
+                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                        <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                             CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
+                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                    </p>
+                    <p>
+                        <asp:CheckBox ID="RememberMe" runat="server"/>
+                        <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Keep me logged in</asp:Label>
+                    </p>
+                </fieldset>
+                <p class="submitButton">
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup"/>
+                </p>
+            </div>
+        </LayoutTemplate>
+    </asp:Login>
+
+
+
+
+    <div style="height:20px"></div>
+                    <div style="height:120px">
+                        <p>
+                            <asp:Button ID="LoginButton" runat="server" CommandName="·Î±×ÀÎ" Text="Log In" ValidationGroup="LoginUserValidationGroup" Width="112px" Height="113px"/>
+                        </p>
+                    </div>    
+                    <div style="height:60px"></div>   

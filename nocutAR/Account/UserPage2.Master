@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserPage2.Master.cs" Inherits="nocutAR.Account.UserPage2" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="/Scripts/jquery-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="../Scripts/popup.js"></script>
+    <script language="javascript" type="text/javascript" src="../Scripts/menu.js"></script>
+    <script>
+        //var server_url = "http://218.36.125.250:8888";
+        //var server_url = "http://192.168.216.195:5555";
+        var server_url = "http://" + location.host;
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <asp:ToolkitScriptManager ID="scManager" runat="server" EnableScriptLocalization="true" EnableScriptGlobalization="true">
+    </asp:ToolkitScriptManager>
+        <div class="page">
+                <div class="accountheader" style="height:110px" >
+                    <div style="height:110px;margin-top: 0px; padding-top: 0px;">
+                        <header class="headermain">
+	                        <h1><strong>NOCUT AR</strong> management</h1>
+	                        <a href="logout.aspx">로그아웃 ></a>
+                        </header>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+        </div>
+        <div class="clspopup" id="progress_div"  >
+            <img src="img/ajax-loader.gif" />
+        </div>
+        <div id="delpopup2" class="clspopup" style="width:180px; height:auto; z-index:3000;">
+            <span class="poptitle">삭제</span>
+            <hr />
+            <p class="question">컨텐츠를 삭제하시겠습니까?</p>
+            <div class="buttons">
+                <input type="button" onclick="delObject1()" value="확인"/>
+                <input type="button" onclick="removePopup()" value="취소"/>
+                <input type="hidden" id="del_objectid" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+Z:\Web\CoAR\COAR\Page\DataAccess\bin\Release\DataAccess.dll
+Z:\Web\CoAR\COAR\Page\DataAccess\bin\Release\DataAccess.pdb
+Z:\Web\CoAR\COAR\Page\DataAccess\obj\Release\DataAccess.dll
+Z:\Web\CoAR\COAR\Page\DataAccess\obj\Release\DataAccess.pdb
+Z:\Web\CoAR\Page\DataAccess\bin\Release\DataAccess.dll
+Z:\Web\CoAR\Page\DataAccess\bin\Release\DataAccess.pdb
+Z:\Web\CoAR\Page\DataAccess\obj\Release\DataAccess.dll
+Z:\Web\CoAR\Page\DataAccess\obj\Release\DataAccess.pdb
+P:\CoAR\Page\DataAccess\bin\Release\DataAccess.dll
+P:\CoAR\Page\DataAccess\bin\Release\DataAccess.pdb
+P:\CoAR\Page\DataAccess\obj\Release\DataAccess.csproj.CoreCompileInputs.cache
+P:\CoAR\Page\DataAccess\obj\Release\DataAccess.dll
+P:\CoAR\Page\DataAccess\obj\Release\DataAccess.pdb
+P:\CoAR\Page\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache

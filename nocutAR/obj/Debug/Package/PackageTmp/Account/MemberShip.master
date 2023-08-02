@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Account/UserPage.Master" AutoEventWireup="true" CodeBehind="MemberShip.master.cs" Inherits="nocutAR.Account.MemberShip" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="/Scripts/highcharts/highcharts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            selTopMenu(3);
+        });
+
+        function selLeftMenu(id) {
+            var menuimg = "#accountmenu" + id + " img";
+            var menuspan = "#accountmenu" + id + " span";
+            $(menuspan).css("color", "#666666");
+        }
+
+        function onGoAccount() {
+            location.href = "accountinfo.aspx";
+        }
+        function onGoCampain() {
+            location.href = "campainhist.aspx";
+        }
+    </script>
+    <asp:ContentPlaceHolder runat="server" ID="head">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderSearch" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolderSearch">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<table cellpadding="0" cellspacing="0" align="center" width="1320" style="border-collapse:collapse;">
+    <tr>
+        <td width="223" height="1254" bgcolor="white" style="border-top-width:1px; border-right-width:2; border-bottom-width:1px; border-left-width:1px; border-top-color:black; border-right-color:rgb(224,226,228); border-bottom-color:black; border-left-color:black; border-top-style:none; border-right-style:solid; border-bottom-style:none; border-left-style:none;" valign="top">
+            <table cellpadding="0" cellspacing="0" align="center" width="201">
+                <tr>
+                    <td width="35" height="20">&nbsp;</td>
+                    <td width="107" height="20">&nbsp;</td>
+                    <td width="59" height="20">&nbsp;</td>
+                </tr>
+                <tr id="accountmenu1" class="accountmenu" onclick="onGoCampain()" style="cursor:pointer">
+                    <td width="35" height="50"></td>
+                    <td width="107" height="50"><b><font face="돋움" color="#999999"><span style="font-size:11pt;">등록한 캠페인</span></font></b></td>
+                    <td width="59" height="50">&nbsp;</td>
+                </tr>
+                <tr id="accountmenu2" class="accountmenu" onclick="onGoAccount()" style="cursor:pointer">
+                    <td width="35" height="50"></td>
+                    <td width="107" height="50"><b><font face="돋움" color="#999999"><span style="font-size:11pt;">My account</span></font></b></td>
+                    <td width="59" height="50"></td>
+                </tr>
+            </table>
+        </td>
+        <td width="1093" height="1254" bgcolor="#F7F8F8" style="border-top-width:1px; border-right-width:1px; border-bottom-width:1px; border-left-width:2; border-top-color:black; border-right-color:black; border-bottom-color:black; border-left-color:rgb(224,226,228); border-top-style:none; border-right-style:none; border-bottom-style:none; border-left-style:solid;" valign="top">
+            <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">
+            </asp:ContentPlaceHolder>
+        </td>
+    </tr>
+</table>
+</asp:Content>

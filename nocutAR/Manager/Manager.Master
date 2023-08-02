@@ -1,0 +1,272 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manager.master.cs" Inherits="nocutAR.Manager.Manager" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../Scripts/jquery-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="../Scripts/popup.js"></script>
+    <link rel="stylesheet" href="../Scripts/jquery-ui-1.11.2/jquery-ui.css" type="text/css" media="all" />
+    <script type="text/javascript" language="javascript" src="../Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+    <script src="/Scripts/highcharts/highcharts.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/Scripts/calendar.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $(".date-input").datepicker({ dateFormat: "yy-mm-dd" });
+            $(".image-btn").mouseover(function () {
+                $(this).attr("src", $(this).attr("src").replace(".png", "_r.png"));
+            });
+            $(".image-btn").mouseout(function () {
+                $(this).attr("src", $(this).attr("src").replace("_r.png", ".png"));
+            });
+        });
+        function selTopMenu(id) {
+            $("#topmenu" + id).removeClass("topmenu").addClass("topmenu_sel");
+        }
+        var server_url = "http://" + location.host;
+
+        /*메인관리자패스워드변경*/
+        function OnChangePwd() {
+            showPopup("changepwd_div");
+        }
+        /***메인관리자패스워드변경***/
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="scManager" runat="server"  EnableScriptLocalization="true" EnableScriptGlobalization="true">
+    </asp:ToolkitScriptManager>
+    <div >
+<table cellpadding="0" cellspacing="0" width="100%" height="100%" bgcolor="#EFEFEF">
+    <tr>
+        <td height="100%" valign="top">
+            <table cellpadding="0" cellspacing="0" width="100%" height="45" bgcolor="#2B3541">
+                <tr>
+                    <td height="45">
+                        <table cellpadding="0" cellspacing="0" bordercolordark="black" bordercolorlight="black" height="45" width="1320">
+                            <tr>
+                                <td width="250" height="50" bgcolor="#272727">
+                                    <img src="img/top_logo.png" width="250" height="45" border="0">
+                                </td>
+                                <td width="1070" height="50">
+                                    <table cellpadding="0" cellspacing="0" align="center" width="1027">
+                                        <tr>
+                                            <td width="714" height="38">
+                                                <table cellpadding="0" cellspacing="0" bgcolor="#3F4956" style="border-collapse:collapse;" width="580">
+                                                    <tr>
+                                                        <td width="143" height="30" align="center" class="topmenu" id="topmenu1">
+                                                            <a href="MemberMng.aspx">계정관리</a>
+                                                        </td>
+                                                        <td width="144" height="30" align="center" class="topmenu" id="topmenu2">
+                                                            <a href="ProductMng.aspx">상품관리</a>
+                                                        </td>
+                                                        <td width="144" height="30" align="center" class="topmenu" id="topmenu3">
+                                                            <a href="LogMng.aspx">로그관리</a>
+                                                        </td>
+                                                        <td width="144" height="30" align="center" class="topmenu" id="topmenu4">
+                                                            <a href="NoticeMng.aspx">공지사항</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td width="313" height="38" valign="middle" align="right">
+                                                <table cellpadding="0" cellspacing="0" width="181" height="30" >
+                                                    <tr>
+                                                        <td width="92" height="30" align="right">
+                                                            <a href="javascript:;" onclick="OnChangePwd()"><img src="img/top_bt_pw.png" class="image-btn" width="83" height="30" border="0" name="image12"></a>
+                                                        </td>
+                                                        <td width="89" height="30" align="right">
+                                                            <a href="/Manager/Logout.aspx"><img src="img/top_bt_logout.png" class="image-btn" width="83" height="30" border="0" name="image13"></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </td>
+    </tr>
+</table>
+    </div>
+    <div id="divAlert" class="clspopup" style="left: 500px; top: 250px; width: 400px; height: 300px; z-index:3000; font-family:맑은 고딕">
+        <table width="390px" height="auto" border="0" cellpadding="0" cellspacing="0">
+            <tr height="50px" style="font-size:14pt; font-weight:900">
+                <td align="left"  >
+                    마커이미지 요청이 들어왔습니다.
+                </td>
+                <td  style="font-size:20pt;text-align: right;">
+                    <a href="javascript:;" onclick="closePopup()">X</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="height:1px; background-color:#000;"></td>
+            </tr>
+            <tr style="font-size:12pt" height="50px">
+                <td colspan="2">
+                    <span id="reqProjectName"></span><br />
+                    <span id="reqContentName"></span><br />
+                    <div style="word-break:break-all" id="reqMarkerPath"></div>
+                    <input id="content_id" name="content_id" type="hidden"  />
+                </td>
+            </tr>
+            <tr height="90px">
+                <td colspan="2" align="center" style="width:350px">
+                    <asp:TextBox ID="txtMarkName" runat="server" style="width:72%; height:28px; font-size:12pt; float:left"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvTargetName" runat="server" ValidationGroup="vGroup02" CssClass="error-message"
+                        ControlToValidate="txtMarkName"
+                        ErrorMessage="Vuforia와 연결된 TargetName을 입력해주세요."
+                        Display="None"></asp:RequiredFieldValidator>
+                    <asp:ValidationSummary ID="vSummary01" runat="server" ValidationGroup="vGroup02"
+                        ShowMessageBox="true"
+                        ShowSummary="false"
+                        DisplayMode="BulletList" />
+                    <asp:Button ID="btnOK" runat="server" Text="확인" style="width:23%; height:33px; font-size:12pt; "
+                        onclick="btn_RegMarker_Click" ValidationGroup="vGroup02" />
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="project_id" id="newcontent_projectid" value="" />
+    </div>
+    <div id="changepwd_div" class="clspopup">
+        <table cellpadding="0" cellspacing="0" width="519" style="border-collapse:collapse;" bgcolor="#F0F0F0">
+            <tr>
+                <td width="517" height="40" style="border-width:1px; border-color:rgb(216,216,216); border-style:solid;" bgcolor="#D8D8D8">
+                    <table cellpadding="0" cellspacing="0" align="center" width="485">
+                        <tr>
+                            <td width="441" height="36"><b><font face="돋움" color="#4C4C4C"><span style="font-size:11pt;">메인 관리자 패스워드 변경</span></font></b></td>
+                            <td width="44" height="36" align="right">
+                                <img class="image-btn" onclick="closePopup()" src="img/popup_close.png" width="20" height="20" border="0" name="image1">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="517" height="280" style="border-width:1px; border-color:rgb(216,216,216); border-style:solid;" bgcolor="#F6F6F6">
+                    <table cellpadding="0" cellspacing="0" width="473" align="center">
+                        <tr>
+                            <td width="125" height="40">
+                                <span style="font-size:11pt;"><font face="돋움" color="#666666">현재 패스워드</font></span>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="vGroup03" CssClass="error-message"
+                                    ControlToValidate="txtCurrentPwd"
+                                    ErrorMessage="현재 패스워드를 입력해주세요."
+                                    SetFocusOnError="True"
+                                    Display="Dynamic">*</asp:RequiredFieldValidator>
+                            </td>
+                            <td width="348" height="40">
+                                <asp:TextBox ID="txtCurrentPwd" TextMode="Password" runat="server" style="width:320px; height:25px"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" width="473" align="center">
+                        <tr>
+                            <td width="125" height="40">
+                                <span style="font-size:11pt;"><font face="돋움" color="#666666">새로운 패스워드</font></span>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="vGroup03" CssClass="error-message"
+                                    ControlToValidate="txtNewPwd"
+                                    ErrorMessage="패스워드를 한번 더 확인해주세요."
+                                    SetFocusOnError="True"
+                                    Display="Dynamic">*</asp:RequiredFieldValidator>
+                            </td>
+                            <td width="348" height="40">
+                                <asp:TextBox ID="txtNewPwd" TextMode="Password" runat="server" style="width:320px; height:25px"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" width="473" align="center">
+                        <tr>
+                            <td width="125" height="40">
+                                <span style="font-size:11pt;"><font face="돋움" color="#666666">패스워드 재입력</font></span>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="vGroup03" CssClass="error-message"
+                                    ControlToValidate="txtNewPwdConfirm"
+                                    SetFocusOnError="True"
+                                    Display="Dynamic">*</asp:RequiredFieldValidator>
+                                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtNewPwdConfirm"
+                                    ValidationGroup="vGroup03"
+                                    Display="Dynamic"
+                                    CssClass="error-message"
+                                    SetFocusOnError="True"
+                                    ErrorMessage="새로 입력하신 패스워드와 동일하지 않습니다."
+                                    ControlToCompare="txtNewPwd">*</asp:CompareValidator>
+                            </td>
+                            <td width="348" height="40">
+                                <asp:TextBox ID="txtNewPwdConfirm" TextMode="Password" runat="server" style="width:320px; height:25px"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" bordercolordark="black" bordercolorlight="black">
+                        <tr>
+                            <td width="518" height="83" valign="bottom">
+                                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="vGroup03"
+                                    ShowMessageBox="false"
+                                    ShowSummary="true"
+                                    DisplayMode="BulletList" Font-Size="8pt" ForeColor="Red" />
+                                <table cellpadding="0" cellspacing="0" width="234" align="center">
+                                    <tr>
+                                        <td width="113" height="48">
+                                            <input type="button" class="clsBigButton" value="취소" style="width:107px; height:33px; background-color:#7F7F7F"
+                                                onclick="closePopup()" />
+                                        </td>
+                                        <td width="121" height="48">
+                                            <asp:Button ID="btnChangPwdOK" runat="server" Text="등록" CssClass="clsBigButton" style="width:107px; height:33px;"
+                                                onclick="btnChangPwdOK_Click" ValidationGroup="vGroup03" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="popBack"></div>
+    <object id="objPlaySound" width="1" height="1" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" altHtml="">
+        <param name="_cx" value="2725">
+        <param name="_cy" value="1164">
+        <param name="flashvars" value="">
+        <param name="movie" value="/img/playsound.swf">
+        <param name="src" value="/img/playsound.swf">
+        <param name="wmode" value="transparent">
+        <param name="play" value="0">
+        <param name="loop" value="-1">
+        <param name="quality" value="high">
+        <param name="salign" value="">
+        <param name="menu" value="-1">
+        <param name="base" value="">
+        <param name="allowscriptaccess" value="">
+        <param name="scale" value="showall">
+        <param name="devicefont" value="0">
+        <param name="embedmovie" value="0">
+        <param name="bgcolor" value="">
+        <param name="swremote" value="">
+        <param name="moviedata" value="">
+        <param name="seamlesstabbing" value="1">
+        <param name="profile" value="0">
+        <param name="profileaddress" value="">
+        <param name="profileport" value="0">
+        <param name="allownetworking" value="all">
+        <param name="allowfullscreen" value="false">
+        <embed name="objPlaySoundName" height="1" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?p1_prod_version=shockwaveflash" width="1" src="img/playsound.swf" quality="high" loop="true" play="true">
+    </object>
+    </form>
+</body>
+</html>

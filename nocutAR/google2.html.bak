@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>
+<script src="../googleAnalytics.js" type="text/javascript"></script>   
+<script src=http://maps.google.co.kr/maps?file=api&amp;v=2.x&amp;key=생성된 key값"  type="text/javascript"></script>
+<script type="text/javascript">
+ var gmarkers = [];
+ var i = 0;
+ var left_btn, right_btn;
+ var geo_lat, geo_lng;
+ var map;
+ var geocoder;
+ var polyOptions;
+ var polyline;
+ var base_latlng, cur_latlng;
+ 
+ //var polyline;
+ //google.load("maps", "2.xx");
+ function load(){
+  var ask = ask;
+  if (GBrowserIsCompatible()) {        
+   map = new GMap2(document.getElementById("map"));           
+   geocoder = new google.maps.ClientGeocoder();
+   /*아래 두줄은 기본적인 무브&확대축소 컨트롤*/
+   //map.addControl(new GLargeMapControl());  
+   //map.addControl(new GMapTypeControl());
+              
+   map.setCenter(new GLatLng(37.5642, 126.9798), 14); 
+         
+   /*기본에서 비주얼적인 무브&확대축소 컨트롤 */
+   map.setUIToDefault();
+   map.enableScrollWheelZoom();
+
+   /*좌, 우 클릭 호출*/
+   GEvent.addListener(map, "click", lClickEvt); 
+   GEvent.addListener(map, "singlerightclick", rClickEvt);  
+  }   
+ }
+ /*merker 생성*/
+ function makeMarker(point){
+  var marker = new GMarker(point, {draggable: true});
+  map.addOverlay(marker);
+    
+  /*마우스 오버 호출*/
+  GEvent.addListener(marker, "mouseover", mouseOver);
+  
+  return marker;
+ }
+
+ 
+ function lClickEvt(overlay, point){  
+  if(point){ 
+   geocoder.getLocations(point, function(detail){
+    place = detail.Placemark[0];  
+    left_btn = point;
+    base_latlng = map.fromContainerPixelToLatLng(point);
+        
+    var lmarker = makeMarker(point);             
+             lmarker.setImage("http://maps.google.com/mapfiles/ms/icons/red-pushpin.png");
+             lmarker.openInfoWindowHtml("생성시 좌표 <br/>" + point + "<br/>지역명  : " + place.address);
+
+             /*드래그 시작호출*/
+       GEvent.addListener(lmarker, "dragstart", function() {    
+           map.closeInfoWindow();
+          }); 
+
+             /*드래그 호출*/
+             GEvent.addListener(lmarker, "drag", function(point){
+              map.removeOverlay(polyline);  
+              left_btn = point;
+              
+              polyOptions = {geodesic:true};
+                 polyline = new GPolyline([left_btn, right_btn], "#FFFF00", 5, 1, polyOptions);     
+                 map.addOverlay(polyline);                                        
+          });
+
+             /*드래그 엔드 호출*/
+       GEvent.addListener(lmarker, "dragend", function(point) {        
+        map.removeOverlay(polyline);
+        delete polyline;
+        
+        geocoder.getLocations(point, function(detail){
+         place = detail.Placemark[0];
+         lmarker.openInfoWindowHtml("드래그 앤드 좌표 <br/>" + point + "<br/> 지역 <br/>" + place.address);       
+        });           
+        
+        left_btn = point;     
+         
+        polyOptions = {geodesic:true};
+                 polyline = new GPolyline([left_btn, right_btn], "#0000FF", 5, 1, polyOptions);     
+                 map.addOverlay(polyline);                
+          });
+   });
+  }
+ }
+
+ function rClickEvt(point, src, overlay){
+  if(point){
+   var geo_pt = map.fromContainerPixelToLatLng(point);
+   geocoder.getLocations(geo_pt, function(detail){
+    place = detail.Placemark[0];
+    
+    right_btn = geo_pt;
+    /*거리계산*/
+    cur_latlng = map.fromContainerPixelToLatLng(point);
+    var dist = cur_latlng.distanceFrom(base_latlng);
+
+    var rmarker = makeMarker(geo_pt);           
+          rmarker.setImage("http://maps.google.com/mapfiles/ms/icons/purple-pushpin.png");    //Purple PIN
+          rmarker.openInfoWindowHtml("생성시 좌표 <br/>" + geo_pt + "<br/>지역명 : " + place.address + "<br/> 거리 : " + dist + "M");                  
+
+          /*기본 좌클릭 후 우클릭시 선그려지기.*/
+          polyOptions = {geodesic:true};
+          polyline = new GPolyline([left_btn, right_btn], "#ff0000", 5, 1, polyOptions);     
+          map.addOverlay(polyline);
+
+          /*드래그 시작호출*/
+       GEvent.addListener(rmarker, "dragstart", function() {    
+           map.closeInfoWindow();
+          }); 
+
+             /*드래그 호출*/
+             GEvent.addListener(rmarker, "drag", function(point){
+              map.removeOverlay(polyline);  
+              right_btn = point;
+              
+              polyOptions = {geodesic:true};
+                 polyline = new GPolyline([left_btn, right_btn], "#FFFF00", 5, 1, polyOptions);     
+                 map.addOverlay(polyline);                                        
+          });
+
+             /*드래그 엔드 호출*/
+       GEvent.addListener(rmarker, "dragend", function(point) {        
+        map.removeOverlay(polyline);
+        delete polyline;
+        
+        geocoder.getLocations(point, function(detail){
+         place = detail.Placemark[0];
+         rmarker.openInfoWindowHtml("드래그 앤드 좌표 <br/>" + point + "<br/> 지역 <br/>" + place.address);       
+        });           
+        
+        right_btn = point;     
+         
+        polyOptions = {geodesic:true};
+                 polyline = new GPolyline([left_btn, right_btn], "#0000FF", 5, 1, polyOptions);     
+                 map.addOverlay(polyline);                
+          });
+   });
+  }
+ }
+ 
+ function mouseOver(point){
+  if(point){ 
+   geocoder.getLocations(point, function(detail){
+    place = detail.Placemark[0];
+    
+    var myHtml = "마우스 오버 좌표 <br/>" + point + "<br/>지역명 <br/>" + place.address;
+    map.openInfoWindow(point, myHtml);
+   })
+  }
+ }
+ 
+ /*지역명 검색*/
+ function areaSearch(){
+  var name = document.getElementById("location").value;  
+  geocoder.getLatLng(name, function(point){
+   if(point){
+    geocoder.getLocations(point, function(detail){      
+     place = detail.Placemark[0];     
+     map.setCenter(new GLatLng(point.y, point.x), 15);
+     var amarker = makeMarker(point);     
+     amarker.openInfoWindowHtml("검색 후 좌표 <br/>" + point +"<br/>지역명<br/>" + place.address);            
+    });
+    
+   } else{
+    alert(name + " 은(는) 검색 되지 않습니다.");
+   }
+  });
+ }
+ 
+
+/*xml 이용 마커 생성*/
+ function vic(){
+  
+
+/*파싱된 정보 받아서 마커 생성 후 조건문으로 출력*/
+  function createMarker(point, name, check) {  
+   var marker = new GMarker(point); 
+   map.addOverlay(marker); 
+   if(check == '1'){
+    marker.setImage("http://www.google.com/mapfiles/markerS.png"); 
+   } else if(check == '2'){
+    marker.setImage("http://www.google.com/mapfiles/markerE.png");
+   } else if(check == '3'){
+    marker.setImage("http://maps.google.com/mapfiles/kml/pal4/icon46.png");
+   }
+   //marker.setImage("http://maps.google.com/mapfiles/kml/pal5/icon26.png");
+
+   GEvent.addListener(marker, "click", function() {  
+    marker.openInfoWindowHtml("<div> " + name + "</div>");  
+   });  
+  }
+ 
+  /*xml을 이용한 marker 생성*/
+  GDownloadUrl("async_data.xml", function(data, responseCode) {     
+   var xml = GXml.parse(data);  
+   var markers = xml.documentElement.getElementsByTagName("marker");  
+ 
+   for (var i = 0; i < markers.length; i++) {  
+    
+    var point = new GLatLng(parseFloat(markers[i].getAttribute("lat")), parseFloat(markers[i].getAttribute("lng")));        
+    
+    //xmarker.setImage("http://maps.google.com/mapfiles/kml/pal2/icon13.png");
+    //map.addOverlay(xmarker);
+ 
+    if(i != '0'){
+     var point2 = new GLatLng(parseFloat(markers[i-1].getAttribute("lat")), parseFloat(markers[i-1].getAttribute("lng")));
+     polyOptions = {geodesic:true};
+              polyline = new GPolyline([point, point2], "#0000FF", 5, 1, polyOptions);     
+              map.addOverlay(polyline);
+              delete polyline;
+    }    
+     /*조건문으로 시작, 끝, 특정 포인트 지정 */
+    var check;
+    if(i == '0'){
+     check = 1;
+     createMarker(point, markers[i].getAttribute("name"), check);
+    }else if(i == markers.length -1){
+     check = 2;
+     createMarker(point, markers[i].getAttribute("name"), check);
+    }else if(i == '1' ||i == '6' || i == '11' || i == '15' || i == '21'){
+     check = 3;
+     createMarker(point, markers[i].getAttribute("name"), check);
+    }
+
+   }  
+  });  
+ }
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>구글 맵</title>
+</head>
+<body onload="load()" onunload="GUnload()">
+ <form name="google">
+  <div id="map" style="width: 700px; height: 560px"></div>
+  
+  지도 검색 : <input type="text" id="location" > 
+  <input type="button" onClick="areaSearch()" value="이동">    
+  
+  <input type="button" value="vic" onclick="vic()" >
+ </form>
+</body>
+</html>
+
+ 
+

@@ -1,0 +1,10 @@
+P:\CoAR\Page\nocutAR\bin\nocutAR.dll.config
+P:\CoAR\Page\nocutAR\bin\nocutAR.dll
+P:\CoAR\Page\nocutAR\bin\nocutAR.pdb
+P:\CoAR\Page\nocutAR\bin\DataAccess.dll
+P:\CoAR\Page\nocutAR\bin\DataAccess.pdb
+P:\CoAR\Page\nocutAR\obj\Debug\CoAR.csprojResolveAssemblyReference.cache
+P:\CoAR\Page\nocutAR\obj\Debug\nocutAR.Properties.Resources.resources
+P:\CoAR\Page\nocutAR\obj\Debug\CoAR.csproj.GenerateResource.Cache
+P:\CoAR\Page\nocutAR\obj\Debug\nocutAR.dll
+P:\CoAR\Page\nocutAR\obj\Debug\nocutAR.pdb
